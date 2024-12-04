@@ -51,7 +51,7 @@ Commercial-Manager est une application en ligne de commande qui permet de gérer
     const connPool = mysql.createPool({
       host: 'localhost', // Remplacez par votre hôte MySQL si différent
       user: 'root',      // Remplacez par votre nom d'utilisateur MySQL
-      password: '499756sem', // Remplacez par votre mot de passe MySQL
+      password: 'mot de passe', // Remplacez par votre mot de passe MySQL
       database: 'commercial_manager', // Remplacez par le nom de votre base de données
       connectTimeout: 2000000,
     });
@@ -72,7 +72,7 @@ Commercial-Manager est une application en ligne de commande qui permet de gérer
 6. Démarrez l'application :
 
     ```bash
-    node app.js
+    node src/app.js
     ```
 
 

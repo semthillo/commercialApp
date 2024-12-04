@@ -47,10 +47,10 @@ async function addOrder(order) {
     const connection = await pool.getConnection();
     try {
         
-        const { date_purchase, delivery_adress, customer_id, track_number, status } = order;
+        const { date_purchase, delivery_address, customer_id, track_number, status } = order;
         const [result] = await connection.execute(
-            'INSERT INTO purchase_orders (date_purchase, delivery_adress, customer_id, track_number, status) VALUES (?, ?, ?, ?, ?)', 
-            [date_purchase, delivery_adress, customer_id, track_number, status]
+            'INSERT INTO purchase_orders (date_purchase, delivery_address, customer_id, track_number, status) VALUES (?, ?, ?, ?, ?)', 
+            [date_purchase, delivery_address, customer_id, track_number, status]
         );
          
         return result.insertId;
@@ -82,11 +82,11 @@ async function getOrderById() {
      async function updateOrder(id, orderDetails) {
         const connection = await pool.getConnection();
         try {
-            const { date_purchase, customer_id, delivery_adress, track_number, status } = orderDetails;
+            const { date_purchase, customer_id, delivery_address, track_number, status } = orderDetails;
     
             const [result] = await connection.execute(
-                'UPDATE purchase_orders SET date_purchase = ?, customer_id = ?, delivery_adress = ?, track_number = ?, status = ? WHERE id = ?',
-                [date_purchase, customer_id, delivery_adress, track_number, status, id]
+                'UPDATE purchase_orders SET date_purchase = ?, customer_id = ?, delivery_address = ?, track_number = ?, status = ? WHERE id = ?',
+                [date_purchase, customer_id, delivery_address, track_number, status, id]
             );
             return result.affectedRows;
         } catch (error) {
